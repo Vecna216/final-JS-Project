@@ -3,10 +3,13 @@
 // poster API requests
 // http://img.omdbapi.com/?apikey=d3fd2ab
 
-
+function processText(input) {
+  inputField = document.getElementById('myText');
+  return inputField.value;
+}
 
 async function main() {
-  const movies = await fetch("http://www.omdbapi.com/?apikey=d3fd2ab&s=fast");
+  const movies = await fetch(`http://www.omdbapi.com/?apikey=d3fd2ab&s=${processText(input)}`);
   const moviesData = await movies.json();
   const movieData = await Object.values(moviesData);
   const firstSix = movieData[0].slice(0, 6)
@@ -22,4 +25,11 @@ async function main() {
   </div>`).join("")
 }
 
+
 main ();
+
+
+
+
+
+
