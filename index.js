@@ -9,13 +9,15 @@ async function main() {
   const movies = await fetch("http://www.omdbapi.com/?apikey=d3fd2ab&s=fast");
   const moviesData = await movies.json();
   const movieData = await Object.values(moviesData);
+  const firstSix = movieData[0].slice(0, 6)
   const movieListEL = document.querySelector('.movies')
-  console.log(movieData)
-  movieListEL.innerHTML = movieData.map(movie => `<div class="movie">
+  movieListEL.innerHTML = firstSix.map(movie => `<div class="movie">
     <div class="movie-poster">
-      <img src="${movie.poster}" alt="movie">
+      <img class="movie__img" src="${movie.Poster}" alt="movie">
     </div>
-    <h3 class="movie__title">${movie.Title}</h3>
+    <div class="movie__title-wrapper">
+      <h3 class="movie__title">${movie.Title}</h3>
+    </div>
     <h4 class="movie__year">${movie.Year}</h4>
   </div>`).join("")
 }

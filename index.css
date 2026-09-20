@@ -193,14 +193,14 @@ margin: 0 auto;
 }
 
 #movies__section {
-  max-width: 600px;
+  max-width: 1000px;
   display: flex;
   align-items: center;
   margin: 0 auto;
 }
 
 .movies {
-  max-width: 600px;
+  max-width: 1000px;
   width: 100%;
   margin: 32px 0;
   display: flex;
@@ -213,8 +213,31 @@ margin: 0 auto;
 .movie {
   max-width: 33%;
   margin: 24px 0;
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+.movie-poster {
+  width: 100%;
+  display: block;
+}
+
+
+.movie__img {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.movie__title-wrapper {
+  display: block;
+  max-width: 100%;
+}
+
+.movie__title {
+}
+
 
 /* 
 
