@@ -4,6 +4,9 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 .app { 
   min-height: 100vh;
