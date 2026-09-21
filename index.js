@@ -4,14 +4,16 @@
 // http://img.omdbapi.com/?apikey=d3fd2ab
 
 function processText() {
-  inputField = document.getElementById('myText');
-  input = inputField.value
-  console.log(input)
-  return input;
+  const inputField = document.getElementById('myText');
+  const input = inputField.value.trim();
+
+  if (!input) return;
+
+  main(input);
 }
 
-async function main() {
-  const movies = await fetch(`http://www.omdbapi.com/?apikey=d3fd2ab&s=${input}`);
+async function main(input) {
+  const movies = await fetch(`http://www.omdbapi.com/?apikey=d3fd2ab&s=${encodeURIComponent(input)}`);
   const moviesData = await movies.json();
   const movieData = await Object.values(moviesData);
   const firstSix = movieData[0].slice(0, 6)
@@ -26,9 +28,6 @@ async function main() {
     <h4 class="movie__year">${movie.Year}</h4>
   </div>`).join("")
 }
-
-
-main ();
 
 
 
