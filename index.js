@@ -20,7 +20,7 @@ async function main(input) {
     divByClass.classList.add('movie__loading');
   movieLoad.classlist += ' movie__loading'
   await delay(1000);
-  const movies = await fetch(`http://www.omdbapi.com/?apikey=d3fd2ab&s=${encodeURIComponent(input)}`);
+  const movies = await fetch(`https://www.omdbapi.com/?apikey=d3fd2ab&s=${encodeURIComponent(input)}`);
   const moviesData = await movies.json();
   divByClass.classList.remove('movie__loading');
 
