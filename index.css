@@ -135,6 +135,8 @@ margin: 0 auto;
 .landing__sub-title {
   font-size: 36px;
   margin-bottom: 64px;
+  display: flex;
+  justify-content: center;
 }
 
 .input__wrapper {
@@ -197,6 +199,9 @@ Filters
 
 #filter {
   margin: 10px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 20px;
 }
 
 
@@ -228,6 +233,8 @@ Movies
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  min-width: calc(800px / 3);
 }
 
 .movie-poster {
@@ -300,4 +307,72 @@ footer {
 
 .copyright { 
   font-weight: 1000;
+}
+
+
+
+/* SMALL PHONES, TABLETS, LARGE SMARTPHONES */
+@media (max-width: 768px) {
+
+.nav__links {
+  max-width: 430px;
+  padding: 0 25px 0 35px;
+}
+
+
+.landing__title {
+  font-size: 32px;
+  width: 500px;
+}
+
+.landing__sub-title {
+  font-size: 24px;
+  width: 500px;
+}
+
+.logo {
+  width: 75px;
+}
+
+.search__input {
+  height: 50px;
+  line-height: 30px;
+  padding: 0 10px;
+  font-size: 20px;
+}
+
+#filter {
+  margin: 10px;
+  padding: 8px 15px;
+  font-size: 16px;
+}
+
+.fa-magnifying-glass {
+  font-size: 26px;
+}
+
+}
+
+
+/* SMALL PHONES, LARGE SMARTPHONES */
+@media (max-width: 550px) {
+
+.landing__title {
+  font-size: 26px;
+  width: 450px;
+}
+
+.logo {
+  width: 60px;
+}
+
+a {
+  font-size: 16px;
+}
+
+.navbar {
+  height: 126px;
+  margin-bottom: 30px;
+  
+}
 }
