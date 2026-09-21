@@ -1,7 +1,6 @@
-//  send Data requests
-// http://www.omdbapi.com/?apikey=d3fd2ab
-// poster API requests
-// http://img.omdbapi.com/?apikey=d3fd2ab
+let movieData = []
+
+
 
 function processText() {
   const inputField = document.getElementById('myText');
@@ -15,10 +14,28 @@ function processText() {
 async function main(input) {
   const movies = await fetch(`http://www.omdbapi.com/?apikey=d3fd2ab&s=${encodeURIComponent(input)}`);
   const moviesData = await movies.json();
-  const movieData = await Object.values(moviesData);
-  const firstSix = movieData[0].slice(0, 6)
-  const movieListEL = document.querySelector('.movies')
-  movieListEL.innerHTML = firstSix.map(movie => `<div class="movie">
+
+  movieData = moviesData.Search.slice(0, 6);
+
+  displayMovies(movieData);
+}
+
+function filterMovies(event) {
+  if (event.target.value === 'A-Z') {
+    movieData.sort((a, b) => a.Title.localeCompare(b.Title));
+  }
+  else if (event.target.value === 'Z-A') {
+    movieData.sort((a, b) => b.Title.localeCompare(a.Title));
+  }
+  else if (event.target.value === 'Newest') {
+    movieData.sort((a, b) => Number(b.Year) - Number(a.Year));
+  }
+  displayMovies(movieData);
+}
+
+function displayMovies(movieData) {
+  const movieListEL = document.querySelector('.movies') 
+  movieListEL.innerHTML = movieData.map(movie => `<div class="movie">
     <div class="movie-poster">
       <img class="movie__img" src="${movie.Poster}" alt="movie">
     </div>
@@ -30,7 +47,22 @@ async function main(input) {
 }
 
 
+// <option value="A-Z">Title, A - Z</option>
+// <option value="Z-A">Title, Z - A</option>
+// <option value="Newest">Age, Newer to Older</option>
 
 
 
-
+  // const movieData = await Object.values(moviesData);
+  // const firstSix = movieData[0].slice(0, 6)
+//   const movieListEL = document.querySelector('.movies') 
+//   movieListEL.innerHTML = firstSix.map(movie => `<div class="movie">
+//     <div class="movie-poster">
+//       <img class="movie__img" src="${movie.Poster}" alt="movie">
+//     </div>
+//     <div class="movie__title-wrapper">
+//       <h3 class="movie__title">${movie.Title}</h3>
+//     </div>
+//     <h4 class="movie__year">${movie.Year}</h4>
+//   </div>`).join("")
+// }

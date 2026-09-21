@@ -37,6 +37,12 @@
                 <button class="search__btn click" onclick="processText()"><i class="fa-solid fa-magnifying-glass"></i></button>
               </div>
             </div>
+            <select id="filter" onchange="filterMovies(event)">
+              <option value="" disabled selected>Sort</option>
+              <option value="A-Z">Title, A - Z</option>
+              <option value="Z-A">Title, Z - A</option>
+              <option value="Newest">Age, Newer to Older</option>
+            </select>
           </div>
         </div>
       </div>
