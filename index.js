@@ -54,24 +54,3 @@ function displayMovies(movieData) {
     <h4 class="movie__year">${movie.Year}</h4>
   </div>`).join("")
 }
-
-
-// <option value="A-Z">Title, A - Z</option>
-// <option value="Z-A">Title, Z - A</option>
-// <option value="Newest">Age, Newer to Older</option>
-
-
-
-  // const movieData = await Object.values(moviesData);
-  // const firstSix = movieData[0].slice(0, 6)
-//   const movieListEL = document.querySelector('.movies') 
-//   movieListEL.innerHTML = firstSix.map(movie => `<div class="movie">
-//     <div class="movie-poster">
-//       <img class="movie__img" src="${movie.Poster}" alt="movie">
-//     </div>
-//     <div class="movie__title-wrapper">
-//       <h3 class="movie__title">${movie.Title}</h3>
-//     </div>
-//     <h4 class="movie__year">${movie.Year}</h4>
-//   </div>`).join("")
-// }
