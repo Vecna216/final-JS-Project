@@ -1,19 +1,28 @@
 let movieData = []
 
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
+const movieLoad = document.querySelector('.movies')
 
-function processText() {
+async function processText() {
   const inputField = document.getElementById('myText');
   const input = inputField.value.trim();
-
+  
   if (!input) return;
+
+  
 
   main(input);
 }
 
 async function main(input) {
+  const divByClass = document.querySelector('.movies');
+    divByClass.classList.add('movie__loading');
+  movieLoad.classlist += ' movie__loading'
+  await delay(1000);
   const movies = await fetch(`http://www.omdbapi.com/?apikey=d3fd2ab&s=${encodeURIComponent(input)}`);
   const moviesData = await movies.json();
+  divByClass.classList.remove('movie__loading');
 
   movieData = moviesData.Search.slice(0, 6);
 
